@@ -1,0 +1,28 @@
+{
+    "[ruby]": {
+        "editor.defaultFormatter": "rubocop.vscode-rubocop",
+        "editor.formatOnSave": true,
+        "editor.maxTokenizationLineLength": 50000
+    },
+    "rubocop.mode": "enableViaGemfile", // must add rubocop on gemfile. mandatory
+    "rubocop.autocorrect": true,
+    "rubocop.lintMode": false,
+    "rubocop.layoutMode": false,
+    "solargraph.diagnostics": true,
+    "solargraph.formatting": false,
+    "solargraph.completion": true,
+    "solargraph.definitions": true,
+    "solargraph.useBundler": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        ".idea": true
+    },
+    "files.insertFinalNewline": true,
+    "editor.foldingStrategy": "indentation"
+}
