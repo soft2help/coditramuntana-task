@@ -53,7 +53,7 @@ Added tools gems standard, bundle-audit and brakeman
 
 We use redis to perform several caching stategies
 
-from backend root (backend folder)
+from backend root (backend   folder)
 
 ```bash
 cd notes/docker/backend_redis
