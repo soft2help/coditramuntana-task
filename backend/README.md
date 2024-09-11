@@ -1,24 +1,79 @@
-# README
+# Discography project Task
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Coverage](coverage.svg)
+![Rubocop](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)
+![Rails](https://img.shields.io/badge/Rails-7.1.3-green)
+![Ruby](https://img.shields.io/badge/Ruby-3.0.0-green)
 
-Things you may want to cover:
+Welcome to Discography project Task! This project is a Rails API application, focused on managing artists, LPs, and songs, and uses several key technologies and best practices such as caching strategies, serializers, API rate-limiting, Swagger for API documentation, and more.
 
-* Ruby version
+## Requirements
 
-* System dependencies
+* Docker
+* docker-compose
 
-* Configuration
+## DB
 
+Install/reinstall db
+
+from backend root (backend folder)
+
+```bash
+rails db:drop db:create db:migrate db:seed
+```
+
+## Development
+
+Rubocop, standard and solargraph was used to help in development process using visual code ide
+
+* **rubocop** is a Ruby static code analyzer and formatter based on the community Ruby style guide. It helps enforce coding standards and automatically fix issues in your code.
+
+* **standard** is an alternative to Rubocop with its own opinionated style guide. It's designed to work with less configuration and focus on quick and consistent code formatting.
+
+* **solargraph** is a Ruby language server that provides IDE features like code completion, inline documentation, and type-checking
+
+for more info check Gemfile section **group :development, :test** and files **.rubocop**, **.standard** and **.solargraph**
+
+in .vscode/settings.json are the configuration used to vscode ide
+
+### Code quality, security, and adherence to best practice
+
+Added tools gems standard, bundle-audit and brakeman
+
+* **standard** ensure code style consistency
+
+* **bundle-audit** Checks project's dependencies for known vulnerabilities.
+
+* **brakeman** Scans Rails application for security vulnerabilities.
+
+> [!NOTE]
+> if you want to add brakeman exceptions in interactive way use: **bundle exec brakeman -I**
+
+## Redis
+
+We use redis to perform several caching stategies
+
+from backend root (backend folder)
+
+```bash
+cd notes/docker/backend_redis
+docker-compose up -d
+```
+
+## Testing
+
+from backend root (backend folder)
+
+```bash
+bundle exec rspec --format documentation
+```
+
+
+
+## Topics covered
+
+* Development process
 * Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Database Initialization
+* Testing run spec
+* 

@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-
+require "redis_config"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -30,6 +30,15 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.cache_store = :redis_cache_store, {
+    url: RedisConfig.instance.read[:default][:url],
+    expires_in: 1.hour,
+    connect_timeout: 30, # Defaults to 20 seconds
+    read_timeout: 2, # Defaults to 1 second
+    write_timeout: 2, # Defaults to 1 second
+    reconnect_attempts: 3 # Defaults to 0
+  }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
@@ -56,7 +65,6 @@ Rails.application.configure do
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
 
-
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
@@ -68,4 +76,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+
+  config.prefix_settings = "Settings::"
+
+  # config.api_key_hmac_secret_key = Rails.application.credentials.api_key_hmac_secret_key
+  config.api_key_hmac_secret_key = "3cf73c090cb08939daaef93bd59533214d7400fb01ce865e62ffd676ecf4e84f"
 end

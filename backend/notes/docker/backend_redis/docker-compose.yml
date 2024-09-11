@@ -1,0 +1,10 @@
+services:
+  redis:
+    image: redis
+    command: >
+      --include /usr/local/etc/redis/redis.conf
+    volumes:
+      - /data/db/redis-disc-api
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"

@@ -35,5 +35,6 @@
 doc
 swagger
 .yardoc
+coverage/*
 
 

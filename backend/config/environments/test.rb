@@ -1,5 +1,5 @@
 require "active_support/core_ext/integer/time"
-
+require "redis_config"
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
 # your test database is "scratch space" for the test suite and is wiped
@@ -25,8 +25,15 @@ Rails.application.configure do
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local = true
-  config.action_controller.perform_caching = false
-  config.cache_store = :null_store
+  config.action_controller.perform_caching = true
+  config.cache_store = :redis_cache_store, {
+    url: RedisConfig.instance.read[:default][:url],
+    expires_in: 1.hour,
+    connect_timeout: 30, # Defaults to 20 seconds
+    read_timeout: 2, # Defaults to 1 second
+    write_timeout: 2, # Defaults to 1 second
+    reconnect_attempts: 3 # Defaults to 0
+  }
 
   # Render exception templates for rescuable exceptions and raise for other exceptions.
   config.action_dispatch.show_exceptions = :rescuable
@@ -61,4 +68,7 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
+  config.prefix_settings = "Test::Settings::"
+  # config.api_key_hmac_secret_key = Rails.application.credentials.api_key_hmac_secret_key
+  config.api_key_hmac_secret_key = "3cf73c090cb08939daaef93bd59533214d7400fb01ce865e62ffd676ecf4e84f"
 end
