@@ -71,4 +71,29 @@ Rails.application.configure do
   config.prefix_settings = "Test::Settings::"
   # config.api_key_hmac_secret_key = Rails.application.credentials.api_key_hmac_secret_key
   config.api_key_hmac_secret_key = "3cf73c090cb08939daaef93bd59533214d7400fb01ce865e62ffd676ecf4e84f"
+
+  config.swagger =
+    {
+      development: {
+        variables: {
+          defaultHost: {
+            default: "http://localhost:3001/"
+          }
+        }
+      },
+      staging: {
+        variables: {
+          defaultHost: {
+            default: "http://staging/"
+          }
+        }
+      },
+      production: {
+        variables: {
+          defaultHost: {
+            default: "http://production/"
+          }
+        }
+      }
+    }
 end

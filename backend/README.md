@@ -68,6 +68,17 @@ from backend root (backend folder)
 bundle exec rspec --format documentation
 ```
 
+## Swagger
+
+from backend root (backend folder)
+to generate swagger api documention use
+
+**SWAGGER_ENV** will produce url for each enmviroment required
+
+```bash
+SWAGGER_ENV="development" RSWAG_DRY_RUN=0  rails rswag
+```
+
 
 
 ## Topics covered
