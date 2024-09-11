@@ -79,6 +79,10 @@ to generate swagger api documention use
 SWAGGER_ENV="development" RSWAG_DRY_RUN=0  rails rswag
 ```
 
+after start webserver you will available **/api-docs** endpoint where you can test api and check documentation
+
+
+
 
 
 ## Topics covered
@@ -87,4 +91,5 @@ SWAGGER_ENV="development" RSWAG_DRY_RUN=0  rails rswag
 * Database creation
 * Database Initialization
 * Testing run spec
-* 
+* Swagger API
+
