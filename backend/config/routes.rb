@@ -10,6 +10,20 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   scope "v1", module: "api/v1" do
+    resources :auth, only: [] do
+      collection do
+        post "/login" => "auth#login"
+        get "/logout" => "auth#logout"
+      end
+    end
+
+    resources :report, only: [] do
+      collection do
+        get "/lps" => "report#lps"
+      end
+    end
+
     resources :artists, only: %i[index show create update destroy]
+    resources :lps, only: %i[index show create update destroy]
   end
 end

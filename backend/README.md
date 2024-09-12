@@ -1,4 +1,4 @@
-# Discography project Task
+# Discography project Task (Backend)
 
 ![Coverage](coverage.svg)
 ![Rubocop](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)
@@ -72,7 +72,7 @@ from backend root (backend   folder)
 bundle exec standardrb
 bundle exec brakeman -A
 bundle exec bundle-audit check --update --config bundler-audit.yml
-````
+```
 
 ## Redis
 
@@ -107,8 +107,33 @@ SWAGGER_ENV="development" RSWAG_DRY_RUN=0  rails rswag
 after start webserver you will available **/api-docs** endpoint where you can test api and check documentation
 
 
+## Swagger Documentation
 
+In endpoint http://localhost:3001/api-docs
 
+here you can easily test and understand the API's endpoints.
+
+in Authorize button you set an Bearer token.
+
+Generate bearer token
+
+open an rails console
+from backend root (backend folder)
+```bash
+rails c
+```
+
+on rails console
+
+```ruby
+user = User.create(email: "adminapi@domain.com", password: "AdminApi2024**", roles: [:admin])
+api_key = ApiKey.create(bearer: user)
+api_key.raw_token
+```
+
+copy raw token and past in value input for bearer token, and click authorize
+
+test endpoints
 
 ## Topics covered
 
@@ -126,4 +151,6 @@ after start webserver you will available **/api-docs** endpoint where you can te
 * Error Handling
 * Pagination
 * Security (throttling)
+* API Version
+* Caching Strategies
 
