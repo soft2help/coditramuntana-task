@@ -7,7 +7,7 @@ backend api should be up and running
 ## Install and Running
 ```bash
 gem install bundler jekyll
-cd frontend
+cd coditramuntana-task/frontend
 bundle exec jekyll serve
 ```
 
