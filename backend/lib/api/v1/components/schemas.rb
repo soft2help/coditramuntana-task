@@ -10,6 +10,9 @@ module Api
             .merge(generic_attributes)
             .merge(data_item)
             .merge(data_array)
+            .merge(Api::V1::Components::Artists::Schemas.index_attributes)
+            .merge(Api::V1::Components::Artists::Schemas.index)
+            .merge(Api::V1::Components::Artists::Schemas.show_attributes)
         end
 
         def self.default_error

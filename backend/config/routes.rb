@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   mount Rswag::Ui::Engine => "/api-docs"
   # Defines the root path route ("/")
   # root "posts#index"
+
+  scope "v1", module: "api/v1" do
+    resources :artists, only: %i[index show create update destroy]
+  end
 end
