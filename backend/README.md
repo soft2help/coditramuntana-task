@@ -12,6 +12,21 @@ Welcome to Discography project Task! This project is a Rails API application, fo
 * Docker
 * docker-compose
 
+## Install
+
+**Important** its mandatory start redis server
+
+```bash
+git clone git@github.com:soft2help/coditramuntana-task.git
+cd coditramuntana-task/backend
+bundle
+rails db:drop db:create db:migrate db:seed
+cd notes/docker/backend_redis
+docker-compose up -d
+cd ../../../
+rails s -p 3001
+````
+
 ## DB
 
 Install/reinstall db
@@ -48,6 +63,16 @@ Added tools gems standard, bundle-audit and brakeman
 
 > [!NOTE]
 > if you want to add brakeman exceptions in interactive way use: **bundle exec brakeman -I**
+
+With this tools you can perform commands to ensure code quality
+
+from backend root (backend   folder)
+
+```bash
+bundle exec standardrb
+bundle exec brakeman -A
+bundle exec bundle-audit check --update --config bundler-audit.yml
+````
 
 ## Redis
 
