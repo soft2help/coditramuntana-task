@@ -92,4 +92,13 @@ after start webserver you will available **/api-docs** endpoint where you can te
 * Database Initialization
 * Testing run spec
 * Swagger API
+* Serializers
+* Query Objects
+* Endpoints Security
+* Middleware Authentication
+* JSON API Compliance
+* Strong Parameters
+* Error Handling
+* Pagination
+* Security (throttling)
 
