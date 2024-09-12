@@ -1,0 +1,24 @@
+---
+layout: default
+title: New LP
+scripts: |
+    <script src="/assets/js/lps/helper.js"></script>
+    <script src="/assets/js/lps/new.js"></script>
+    
+---
+
+<div class="container mx-auto my-8 p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Add Lp</h1>
+
+    <!-- Artist Form -->
+    <div class="space-y-6">
+        {% include lp-new-edit.html %}
+
+        <!-- Submit Button -->
+        <div>
+            <button
+                class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-700 add-lp">
+                Add Lp
+            </button>
+        </div>
+    </div>

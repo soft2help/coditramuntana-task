@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
+</head>
+
+<body class="flex items-center justify-center">
+    {% unless page.login %}
+    {% include header.html %}
+    {% endunless %}
+    <main>
+        {{ content }}
+    </main>
+    {% include environment/{{jekyll.environment}}.html %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ '/assets/js/api.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/notification.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/token.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/pagination.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/script.js' | relative_url }}"></script>
+    {% if page.scripts %}
+    {{ page.scripts | safe }}
+    {% endif %}
+</body>
+
+</html>
